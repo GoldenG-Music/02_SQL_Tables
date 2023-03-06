@@ -19,7 +19,7 @@ USE boo;
 
 SHOW TABLES;
 
-#DROP TABLE IF EXISTS coworkers;
+DROP TABLE IF EXISTS coworkers;
 CREATE TABLE IF NOT EXISTS coworkers
 (
      firstName VARCHAR(20),
@@ -32,3 +32,24 @@ SHOW TABLES;
 
 DESCRIBE coworkers;
 
+INSERT INTO coworkers(firstName,location,age,computer) VALUES ("Max","office",35,"PC");
+INSERT INTO coworkers(firstName,location,age,computer) VALUES ("Gani","pool",36,"iPad");
+INSERT INTO coworkers(firstName,location,age,computer) VALUES ("Sohrab","bed",26,"Mac");
+
+/* ---- Inhalte der Tabelle anzeigen ---- */
+SELECT * FROM coworkers;
+
+/* -- Inhalte Filtern --- */
+SELECT * FROM coworkers WHERE location = "pool";
+
+/* -- Inhalte Sortieren --- */
+SELECT
+firstName AS "Name",
+Location AS  "Ort",
+age AS "Alter"
+FROM coworkers
+#WHERE age > 35 AND location = "bed"
+#ORDER BY age ASC
+ORDER BY age DESC
+LIMIT 1
+;
